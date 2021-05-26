@@ -22,20 +22,28 @@ i int
 s string
 c char
 $ end type prefix, begin variable naming. Following string must only contain alphabetic characters, ie abcdefghijklmnopqrstuvwxyz and no other special characters
-^ get variable
+I converts top of stack to int, if possible
+S converts top of stack to string, if possible
+C converts top of stack to character, if possible
+^ get variable value and add to top of stack
 ~ 1 if positive, 0 if 0, -1 if negative
 : assignment
-[ array index
+[ array index of top of stack at second in stack - replace both
+] null character
 < shift index down 1 in stack NOT GREATER THAN
 > shift index up 1 in stack NOT LESS THAN
-_ get top of the stack without pop
-! get top of the stack with pop
+_ jump to top of stack
+! remove current value from stack
 ` true value
 +-*/ standard operations
 . not
+" begin string (used to begin a string, useful if string contains whitespace, which is normally stripped)
+' end string (any non special characters are automatically parsed as string, unless they are number)
 = equal to test
 @ comment - anything after this will be ignored until the end comment (%) symbol
 % end comment - ends any and all comments
+\ escape character
+& duplicates top of stack
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ███████╗██╗  ██╗ █████╗ ███╗   ███╗██████╗ ██╗     ███████╗███████╗
@@ -44,23 +52,29 @@ ________________________________________________________________________________
 ██╔══╝   ██╔██╗ ██╔══██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝  ╚════██║
 ███████╗██╔╝ ██╗██║  ██║██║ ╚═╝ ██║██║     ███████╗███████╗███████║
 ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝╚══════╝
-                                                                   
+`                                                                   
 0|i$a:
 {,a^3=.,1a+a:}
-	a^;
+	a^;!
 {0|i$i:,1i^a^-~=,1i+i:}
-	i^i^*;
+	i^i^*;!
 
 stdout: "0\n1\n2\n0\n1\n4"
-
+Stack: [0] ['a'] [0] [] ['a'] [1] [] ['a'] [2] [] ['i'] [0] [0,'i'] [0,0] [0] [] ['i'] [1] [1,'i'] [1,1] [1] [] ['i'] [2] [2,'i'] [2,2] [4] []
+`
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+`
 19+|i$ten: @ Sample Comment %
-55+_;ten^+_;3+i: 
+]|i$i:
+55+_;&ten^+_;3+<;_i: @ Note that except for the last underscore, the underscores are not needed, they do nothing, as the pointer is already at the top of the stack. The last underscore could also have been replaced with a >. %
 
-Stack: [1] [1,9] [10] [] [5] [5,5] [10] [
-stdout: "10\n20\n"
+Stack: [1] [1,9] [10] [] [Null] [] [5] [5,5] [10] [10, 10] [10, 10, 'ten'] [10, 10, 10] [10, 20] [10, 20] [10, 20, 3] [10, 23] [10]
+stdout: "10\n20\n10\n"
 Vars: {'ten': 10, 'i': 23}
-
-
+`
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+`
+"this is a random string'|s$a:
 5a^[
 Stack: [5] [5,'a'] [5, "this is a random string"] ['i']
 
