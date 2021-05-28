@@ -1,0 +1,1 @@
+python "%~dp0ten.py" %1
