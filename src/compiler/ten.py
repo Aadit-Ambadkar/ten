@@ -17,3 +17,6 @@ while (i<len(contents)):
 
 print (contents)
 
+print ()
+print ()
+input("Press Return to Exit (Consumes CPU if you Don't) ")
