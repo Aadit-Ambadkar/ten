@@ -16,33 +16,35 @@ ________________________________________________________________________________
 ╚══════╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
                                                     
 {element init,condition,iteration, body} for loop
-[condition#] while loop
 | type prefix
-i int
-s string
-c char
-$ end type prefix, begin variable naming. Following string must only contain alphabetic characters, ie abcdefghijklmnopqrstuvwxyz and no other special characters
-I converts top of stack to int, if possible
-S converts top of stack to string, if possible
-C converts top of stack to character, if possible
+i int (converts top of stack value to int, if not already int. If not possible, defaults to 0)
+s string (converts top of stack value to string, if not already string)
+c char (converts top of stack value to integer. If not possible, defaults to '\x00' character)
+$ end type prefix, begin variable naming.
+I converts top of stack to int, if possible. If not, does nothing
+S converts top of stack to string, if possible. If not, does nothing
+C converts top of stack to character, if possible. If not, does nothing
 ^ get variable value and add to top of stack
 ~ 1 if positive, 0 if 0, -1 if negative
 : assignment
 [ array index of top of stack at second in stack - replace both
-] null character
+] null value
+( and
+) or
 < shift index down 1 in stack NOT GREATER THAN
 > shift index up 1 in stack NOT LESS THAN
 _ jump to top of stack
 ! remove current value from stack
+? clears all values from stack
 ` true value
 +-*/ standard operations
+; prints top of stack
 . not
 " begin string (used to begin a string, useful if string contains whitespace, which is normally stripped)
 ' end string (any non special characters are automatically parsed as string, unless they are number)
 = equal to test
 @ comment - anything after this will be ignored until the end comment (%) symbol
 % end comment - ends any and all comments
-\ escape character
 & duplicates top of stack
 _________________________________________________________________________________________________________________________________________________________________________________
 
@@ -54,10 +56,10 @@ ________________________________________________________________________________
 ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝╚══════╝
 `                                                                   
 0|i$a:
-{,a^3=.,1a+a:}
-	a^;!
-{0|i$i:,1i^a^-~=,1i+i:}
-	i^i^*;!
+{,"a'^3=.,1"a'+"a':}
+	"a'^;!
+{0|i$i:,1"i'^"a'^-~=,1"i'+"i':}
+	"i'^"i'^*;!
 
 stdout: "0\n1\n2\n0\n1\n4"
 Stack: [0] ['a'] [0] [] ['a'] [1] [] ['a'] [2] [] ['i'] [0] [0,'i'] [0,0] [0] [] ['i'] [1] [1,'i'] [1,1] [1] [] ['i'] [2] [2,'i'] [2,2] [4] []
@@ -66,16 +68,29 @@ Stack: [0] ['a'] [0] [] ['a'] [1] [] ['a'] [2] [] ['i'] [0] [0,'i'] [0,0] [0] []
 `
 19+|i$ten: @ Sample Comment %
 ]|i$i:
-55+_;&ten^+_;3+<;_i: @ Note that except for the last underscore, the underscores are not needed, they do nothing, as the pointer is already at the top of the stack. The last
+55+_;&"ten'^+_;3+<;_"i': @ Note that except for the last underscore, the underscores are not needed, they do nothing, as the pointer is already at the top of the stack. The last
 underscore could also have been replaced with a >. %
 
-Stack: [1] [1,9] [10] [] [Null] [] [5] [5,5] [10] [10, 10] [10, 10, 'ten'] [10, 10, 10] [10, 20] [10, 20] [10, 20, 3] [10, 23] [10]
+Stack: [1] [1,9] [10] [] [Null] [] [5] [5,5] [10] [10, 10] [10, 10, 'ten'] [10, 10, 10] [10, 20] [10, 20, 3] [10, 23] [10, 23, 'i'] [10]
 stdout: "10\n20\n10\n"
 Vars: {'ten': 10, 'i': 23}
 `
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 `
 "this is a random string'|s$a:
-5a^[
-Stack: ["this is a random string"] [] [5] [5,'a'] [5, "this is a random string"] ['i']
+5|i$i:
+5"a'^[^;
+Stack: ["this is a random string"] [] [5] [] [5] [5,'a'] [5, "this is a random string"] ['i'] [5] 
+_________________________________________________________________________________________________________________________________________________________________________________
 
+███╗   ██╗ ██████╗ ████████╗███████╗███████╗
+████╗  ██║██╔═══██╗╚══██╔══╝██╔════╝██╔════╝
+██╔██╗ ██║██║   ██║   ██║   █████╗  ███████╗
+██║╚██╗██║██║   ██║   ██║   ██╔══╝  ╚════██║
+██║ ╚████║╚██████╔╝   ██║   ███████╗███████║
+╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚══════╝╚══════╝
+
+* Some of the examples may be outdated, in which case refer to the syntax for proper use.
+* Some errors are not displayed - Good Luck
+* Variable names must only contain alphabetic characters, ie abcdefghijklmnopqrstuvwxyz and no other special characters
+*
