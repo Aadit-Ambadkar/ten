@@ -1,0 +1,40 @@
+@ This is how you define a variable:
+
+    | - start variable declaration (rather, start variable type declaration)
+    i/s/c - the variable type (this can be changed later, this is also the only way to get characters)
+    $ - the start variable name
+    <name> - the name of the variable
+    : - the assignment.
+
+Make sure that the stack is not empty before hand. %
+
+@ Let's see an example. %
+
+@
+We will assign the value of 5 to the variable "fivevar"
+
+5 - Value of the variable (Putting it in the stack) 
+|i - Making sure it is type integer 
+$fivevar: - giving the variable the name fivevar 
+%
+
+5|i$fivevar:
+
+@ That is it! %
+@ It is important that there are no spaces in between the "|" and the ":", or the code won't work #
+@ Let's print it out. %
+
+"fivevar' @ Getting the variables name in the stack % 
+^ @ Getting the value associated with the variable %
+; @ Printing out the value %
+! @ Removing the value from the stack %
+
+@ Here is another example, written more concisely %
+19+2*|i$twenty:
+"twenty'^;?
+@
+Output: 20
+
+The reasoning is as follows: First, we add the values of 1 and 9, then multiply that by 2 to get 20. We assign it to a variable of name "twenty". Then, we get the value
+associated with that variable (20). We print it out, and clear the entire stack.
+%

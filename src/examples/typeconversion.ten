@@ -1,0 +1,8 @@
+@ Let's convert the number 5 to a string "5" %
+
+@ In order to do that, we just have to use the letter S (capitalized), like so %
+
+5 @ Adds 5 to the stack %
+S; @ converts it to a string and prints it out%
+
+@ Of course, there is no difference in the output %

@@ -1,0 +1,15 @@
+@
+Refering to the docs - 
+
+    ! remove current value from stack
+    ? clears all values from stack
+    & duplicates top of stack
+
+%
+0123456789 @ Add all the numbers to the stack %
+; @ Prints 9 %
+! @ Deletes 9 %
+; @ Prints 8 %
+& @ Duplicates 8 %
+; @ Prints 8 %
+? @ Clears stack %
