@@ -36,7 +36,6 @@ C converts top of stack to character, if possible. If not, does nothing
 ! remove current value from stack
 ? clears all values from stack
 & duplicates top of stack
-# removes variable from variable list - NOT IMPLEMENTED
 ` true value
 +-*/ standard operations
 " begin string (used to begin a string, useful if string contains whitespace, which is normally stripped)

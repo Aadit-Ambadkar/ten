@@ -3,6 +3,24 @@ import re
 from collections import deque
 
 filename = sys.argv[1]
+printq = False
+printvars = False
+endwait = False
+
+for i in range(2, len(sys.argv)):
+    a = sys.argv[i]
+    if (a[1]=='q'):
+        printq = True
+    elif (a[1]=='e'):
+        endwait = True
+    elif (a[1]=='v'):
+        printvars = True
+    else:
+        print("Faulty Input Customization in Command Line Run")
+        sys.exit(1)
+
+
+
 
 file = open(filename, "r")
 
@@ -354,8 +372,10 @@ while (i<len(contents)):
 
 # print (contents)
 
-print ()
-print ()
-# print(q)
+if printq or printvars or endwait:
+    print ()
+    print ()
+if printq: print(q)
+if printvars: print(vars)
 # print(vars)
-input("End of Program, Press Return to Exit (Consumes CPU if you Don't) ")
+if (endwait): input("End of Program, Press Return to Exit (Consumes CPU if you Don't) ")
