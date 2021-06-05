@@ -1,3 +1,24 @@
-0|i$a:
-{,"a'^3=.,1"a'^+"a':,"a'^;}
+@ Let's go over the sample loop from the docs %
+0|i$a: @ Standard variable declaration for demonstration. This could also be done inside the loop %
+
+{,"a'^3=.,1"a'^+"a':,"a'^;} 
+
+@ Lets what we just saw down:
+Initialization: "" (Nothing)
+Boolean check: "a'^3=. (Get value of a, then add value 3, then check if the value of a is equal to the value 3. Finally take the inverse (not) of that)
+Iteration: 1"a'^+"a': (Add value of 1 to the stack, then add the value of a to the stack. Add them and assign that to a)
+Body: "a'^; (Print the value of a)
+
+A little more cleaner version would look like this:
+{
+    ,
+    "a'^3=.,
+    1"a'^+"a':,
+    "a'^;
+}
+
+Try it yourself!
+%
+
+@ See if you can figure out what the below does without running it. Hint: it runs a variable from 0 to a %
 {0|i$i:,1"i'^"a'^-~=,1"i'^+"i':,"i'^"i'^*;}

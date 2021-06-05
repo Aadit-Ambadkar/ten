@@ -36,6 +36,7 @@ C converts top of stack to character, if possible. If not, does nothing
 ! remove current value from stack
 ? clears all values from stack
 & duplicates top of stack
+# removes variable from variable list - NOT IMPLEMENTED
 ` true value
 +-*/ standard operations
 " begin string (used to begin a string, useful if string contains whitespace, which is normally stripped)
@@ -62,8 +63,7 @@ Stack: [0] ['a'] [0] [] ['a'] [1] [] ['a'] [2] [] ['i'] [0] [0,'i'] [0,0] [0] []
 `
 19+|i$ten: @ Sample Comment %
 ]|i$i:
-55+_;&"ten'^+_;3+<;_"i': @ Note that except for the last underscore, the underscores are not needed, they do nothing, as the pointer is already at the top of the stack. The last
-underscore could also have been replaced with a >. %
+55+;&"ten'^+;3+;"i':
 
 Stack: [1] [1,9] [10] [] [Null] [] [5] [5,5] [10] [10, 10] [10, 10, 'ten'] [10, 10, 10] [10, 20] [10, 20, 3] [10, 23] [10, 23, 'i'] [10]
 stdout: "10\n20\n10\n"

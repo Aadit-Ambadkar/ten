@@ -121,7 +121,7 @@ def exec(s):
                 j+=1
             q.appendleft(s[i+1:j])
             i=j
-        elif (contents[i]=="|"):
+        elif (s[i]=="|"):
             i+=1
             val = q.popleft()
             # bval = False
@@ -191,6 +191,7 @@ def exec(s):
             while (s[j]!=','):
                 j+=1
             start = s[i+1:j]
+            # print(start)
             exec(start)
             cond = ""
             i=j
@@ -198,22 +199,32 @@ def exec(s):
             while (s[j]!=','):
                 j+=1
             cond = s[i+1:j]
+            # print(cond)
             i=j
-            j+=1
             itr = ""
+            j+=1
             while (s[j]!=','):
                 j+=1
             itr = s[i+1:j]
+            # print(itr)
             body = ""
             i=j
             j+=1
             while (s[j]!='}'):
                 j+=1
             body = s[i+1:j]
+            # print(body)
             i=j
-            while (boolexpr(cond)):
+            cont = boolexpr(cond)
+            # print(cont)
+            while (cont):
                 exec(body)
+                # print("Body")
                 exec(itr)
+                cont = boolexpr(cond)
+                # print(cont)
+                # print(q)
+                # print(vars)
         else:
             try: q.appendleft(int(s[i]))
             except: pass
