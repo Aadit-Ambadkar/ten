@@ -203,6 +203,8 @@ def exec(s):
             q.appendleft(str(q.popleft()))
         elif (s[i]=='C'):
             q.appendleft(char(str(q.popleft())))
+        elif (s[i]=='#'):
+            q.appendleft(input().strip())
         elif (s[i]=='{'):
             start = ""
             j = i
@@ -325,6 +327,8 @@ while (i<len(contents)):
         q.appendleft(str(q.popleft()))
     elif (contents[i]=='C'):
         q.appendleft(char(str(q.popleft())))
+    elif (contents[i]=='#'):
+        q.appendleft(input().strip())
     elif (contents[i]=='{'):
         start = ""
         j = i

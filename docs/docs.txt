@@ -33,9 +33,12 @@ C converts top of stack to character, if possible. If not, does nothing
 ) or
 . not
 = equals
+# standard input
+; standard output
 ! remove current value from stack
 ? clears all values from stack
 & duplicates top of stack
+_ ends program
 ` true value
 +-*/ standard operations
 " begin string (used to begin a string, useful if string contains whitespace, which is normally stripped)
@@ -87,3 +90,13 @@ ________________________________________________________________________________
 * Some errors are not displayed - Good Luck
 * Variable names must only contain alphabetic characters, ie abcdefghijklmnopqrstuvwxyz and no other special characters
 * More examples can be found in `/src/examples`
+_________________________________________________________________________________________________________________________________________________________________________________
+
+ ██████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗ ██████╗     ███████╗ ██████╗  ██████╗ ███╗   ██╗
+██╔════╝██╔═══██╗████╗ ████║██║████╗  ██║██╔════╝     ██╔════╝██╔═══██╗██╔═══██╗████╗  ██║
+██║     ██║   ██║██╔████╔██║██║██╔██╗ ██║██║  ███╗    ███████╗██║   ██║██║   ██║██╔██╗ ██║
+██║     ██║   ██║██║╚██╔╝██║██║██║╚██╗██║██║   ██║    ╚════██║██║   ██║██║   ██║██║╚██╗██║
+╚██████╗╚██████╔╝██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝    ███████║╚██████╔╝╚██████╔╝██║ ╚████║
+ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝
+                                                                                          
+<name,body> function

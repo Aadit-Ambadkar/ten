@@ -1,0 +1,17 @@
+@
+Solution to https://codeforces.com/problemset/problem/4/A in TEN
+%
+
+"YES'|s$0: @ Set "0' to be "Yes' %
+"NO'|s&1: @ Set "1' to be "No' %
+#|i$w: @ Read in input and assign it to w %
+1 @ Put 1 in stack (we will need this later) %
+2"w'^- @ Now subtract the value of "w' by 2 %
+~ @ If w was more than 2, then this tilda results in 1. If it was 2, the tilda gives 0. If it was 1, the tilda gives -1. %
+- @ Remember that 1 on line 8? Now we use that, subtracting the output of the tilda by 1, essentially giving 0 if w was more than 2, -1 if it was 2, and -2 if it was 1 %
+"w'^+ @ This adds the value of the new tilda (line 11) to w. Essentially, 
+            it does nothing if w was more than 2, gives 1 if w was 2, and -1 if w was 1. The only parity change is when w is 2! %
+"w': @ We reassign this value to w %
+2"w'^/2* @ Now, we simly find the largest multiple of 2 less than or equal to w (to find modulus) %
+"w'^-~S^; @ Subtract this from w to get the modulus. Convert this to a string, and use the variables defined at the start of the program to get our final answer.
+                Output that answer, and we are done. %
