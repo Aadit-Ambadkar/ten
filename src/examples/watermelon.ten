@@ -15,3 +15,6 @@ Solution to https://codeforces.com/problemset/problem/4/A in TEN
 2"w'^/2* @ Now, we simly find the largest multiple of 2 less than or equal to w (to find modulus) %
 "w'^-~S^; @ Subtract this from w to get the modulus. Convert this to a string, and use the variables defined at the start of the program to get our final answer.
                 Output that answer, and we are done. %
+
+
+@ This code was committed before the release of if statements %
