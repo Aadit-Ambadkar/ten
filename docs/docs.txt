@@ -16,6 +16,7 @@ ________________________________________________________________________________
 ╚══════╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
                                                     
 {element init,condition,iteration, body} for loop
+<body> if statement (executes if top of stack is True)
 | type prefix
 i int (converts top of stack value to int, if not already int. If not possible, defaults to 0)
 s string (converts top of stack value to string, if not already string)
