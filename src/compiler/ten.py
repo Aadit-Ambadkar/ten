@@ -321,12 +321,25 @@ while (i<len(contents)):
         q.appendleft(not q.popleft())
     elif (contents[i]=='='):
         q.appendleft(q.popleft()==q.popleft())
+    elif (contents[i]=='`'):
+        q.appendleft(True)
     elif (contents[i]=='I'):
         q.appendleft(int(q.popleft()))
     elif (contents[i]=='S'):
         q.appendleft(str(q.popleft()))
     elif (contents[i]=='C'):
         q.appendleft(char(str(q.popleft())))
+    elif (contents[i]=='<') :
+        j = i
+        while (contents[j]!=">"):
+            j+=1
+        # print(contents[i+1:j])
+        # print(q)
+        if (q.popleft()==True) :
+            exec(contents[i+1:j])
+        i = j
+            
+        
     elif (contents[i]=='#'):
         q.appendleft(input().strip())
     elif (contents[i]=='{'):
