@@ -1,5 +1,5 @@
 0|i$bvar: @ Filler variable %
-`"bvar': @ Set bvar to true (you would ideally want to save your boolean to reuse it for "else" statement) 
+`"bvar': @ Set bvar to true (you would ideally want to save your boolean to reuse it for "else" statement) %
 "bvar'^
 <"Hi!'>
 "bvar'^.
