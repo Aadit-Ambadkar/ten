@@ -36,7 +36,7 @@ Generally, the above are used for changing types without variable declaration. H
 `^` get variable value and add to top of stack\
 `~` 1 if top of stack is positive, 0 if 0, -1 if negative\
 `:` variable assignment\
-`[` gets an integer value at the top of the stack - index. gets an array at the second from the top of the stack - array. Removes both the index and the array from the stack. Adds array\[index\] to the top of the stack.\
+`[` gets an integer value at the top of the stack - index. gets an interable at the second from the top of the stack - iterable. Removes both the index and the iterable from the stack. Adds iterable\[index\] to the top of the stack.\
 `!` remove current value from stack\
 `?` clears all values from stack\
 `&` duplicates top of stack
